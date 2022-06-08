@@ -1,1 +1,502 @@
 
+Question-1.
+	1. - use a command to show the current working directory
+	-
+	root@Chin42nakhate:/home/Important# pwd
+	/home/Important
+	root@Chin42nakhate:/home/Important#
+	- list the directory contents in the short and long format
+	(with file permissions,owner,size etc,.).
+	Explore attributes given in long format e.g. file type, file permissions, file
+	size, file owner etc.
+	i) root@Chin42nakhate:/home/Important# ls
+	a.txt  b.txt  c.txt  folder1  folder2  folder3
+	ii)root@Chin42nakhate:/home/Important# ls -l
+	total 20
+	-rw-r--r-- 1 root root   45 Mar 10 16:23 a.txt
+
+	-rw-r--r-- 1 root root   35 Mar 10 16:38 b.txt
+
+	-rw-r--r-- 1 root root    0 Mar 10 16:20 c.txt
+
+	drwxr-xr-x 2 root root 4096 Mar 10 16:19 folder1
+
+	drwxr-xr-x 2 root root 4096 Mar 10 16:19 folder2
+
+	drwxr-xr-x 2 root root 4096 Mar 10 16:19 folder3
+
+	- list all files along with hidden files in current working directory
+
+	root@Chin42nakhate:/home/Important# ls -ld
+
+	root@Chin42nakhate:/home/Important# ls -a
+
+	.  ..  .hidden1  .hidden2  a.txt  b.txt  c.txt  folder1  folder2  folder3
+
+	- list only hidden files in the directory
+	root@Chin42nakhate:/home/Important# ls -ld
+
+	drwxr-xr-x 7 root root 4096 Mar 10 16:47 .
+
+	
+
+	
+
+	2. Make a directory and name it as cdac-dir and change the current working
+
+	directory to the new directory.(Hint : use mkdir,cd commands). 
+
+	
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  b.txt  c.txt  cdac_dir  folder1  folder2  folder3
+
+	
+
+	
+
+	3. Create following nested directories inside current directory by invoking single command
+
+	for only one time.
+
+	
+
+	root@Chin42nakhate:/home/Important# mkdir -p a1/a1/a3
+
+	./a1:
+
+	a1
+
+	
+
+	./a1/a1:
+
+	a3
+
+	
+
+	./a1/a1/a3:
+
+	
+
+	
+
+	4. List the directories(folders), then remove the cdac-dir directory and list the
+
+	folders again to show that it is no longer present.(Hint : use rm, ls command).
+
+	
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  a1  b.txt  c.txt  cdac_dir  folder1  folder2  folder3
+
+	root@Chin42nakhate:/home/Important# rm -rf cdac_dir
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  a1  b.txt  c.txt  folder1  folder2  folder3
+
+	
+
+	
+
+	Question-2.
+
+	1. Display the man-page for ls , but redirect the output into temp.txt , then use
+
+	the cat, less , and more commands to display the new file.
+
+	
+
+	NAME
+
+	       ls - list directory contents............more
+
+	
+
+	root@Chin42nakhate:/home/Important# man ls >temp.txt
+
+	root@Chin42nakhate:/home/Important# cat temp.txt
+
+	       ls - list directory contents............more
+
+	root@Chin42nakhate:/home/Important# less temp.txt
+
+	       ls - list directory contents............more (terminal window)
+
+	root@Chin42nakhate:/home/Important# more temp.txt
+
+	       ls - list directory contents............more
+
+	
+
+	
+
+	2. Display the initial 10 lines and final 5 lines of temp.txt with the obvious Linux
+
+	commands.(Hint: use head and tail commands).
+
+	
+
+	root@Chin42nakhate:/home/Important# head -n 10 temp.txt
+
+	LS(1)                                                                      User Commands                                                                      LS(1)
+
+	
+
+	NAME
+
+	       ls - list directory contents
+
+	
+
+	SYNOPSIS
+
+	       ls [OPTION]... [FILE]...
+
+	
+
+	DESCRIPTION
+
+	       List information about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
+
+	
+
+	
+
+	
+
+	root@Chin42nakhate:/home/Important# tail -n 5 temp.txt
+
+	SEE ALSO
+
+	       Full documentation at: <https://www.gnu.org/software/coreutils/ls>
+
+	       or available locally via: info '(coreutils) ls invocation'
+
+	
+
+	GNU coreutils 8.30                                                         September 2019                                                                     LS(1)
+
+	
+
+	3. Copy temp.txt to another directory and rename it there.
+
+	(Hint : use cp to copy and mv command to rename).
+
+	
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  a1  b.txt  c.txt  cdac_dir  folder1  folder2  folder3  temp.txt
+
+	root@Chin42nakhate:/home/Important# cp temp.txt folder1 && mv temp.txt s1.txt
+
+	
+
+	root@Chin42nakhate:/home/Important/folder1# ls
+
+	temp.txt
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  a1  b.txt  c.txt  cdac_dir  folder1  folder2  folder3  s1.txt
+
+	
+
+	
+
+	4. Display the number of lines, words and characters in file using Linux
+
+	command (Hint : use wc command).
+
+	
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  a1  b.txt  c.txt  cdac_dir  folder1  folder2  folder3  s1.txt
+
+	root@Chin42nakhate:/home/Important# wc a.txt
+
+	16 17 45 a.txt
+
+	
+
+	5. Use history command to display last 10 commands used.
+
+	(Hint : use history command).
+
+	
+
+	root@Chin42nakhate:/home/Important# history 10
+
+	  130  tail -n 5 temp.txt
+
+	  131  clear
+
+	  132  ls
+
+	  133  cp temp.txt folder1 && mv temp.txt s1.txt
+
+	  134  cd folder1
+
+	  135  ls
+
+	  136  cd ..
+
+	  137  ls
+
+	  138  wc a.txt
+
+	  139  history 10
+
+	
+
+	
+
+	Question-3.
+
+	1. Create tar archive file of any directory present in your home directory.
+
+	(Hint : use tar command)
+
+	
+
+	root@Chin42nakhate:/home/Important# tar -cvf temp.tar folder1
+
+	folder1/
+
+	folder1/temp.txt
+
+	root@Chin42nakhate:/home/Important#  ls
+
+	a.txt  a1  b.txt  c.txt  cdac_dir  folder1  folder2  folder3  s1.txt  temp.tar
+
+	
+
+	- list the contents of the archive file without extracting.
+
+	root@Chin42nakhate:/home/Important# vim temp.tar
+
+	folder1/
+
+	folder1/temp.txt
+
+	~       
+
+	
+
+	
+
+	
+
+	2. Create zip file of another directory. (Hint : use zip command) -
+
+	list the contents of the zip file without extracting.
+
+	
+
+	root@Chin42nakhate:/home/Important# zip -r a.zip a1
+
+	  adding: a1/ (stored 0%)
+
+	  adding: a1/a1/ (stored 0%)
+
+	  adding: a1/a1/a3/ (stored 0%)
+
+	
+
+	root@Chin42nakhate:/home/Important# vim a.zip
+
+	a1/
+
+	a1/a1/
+
+	a1/a1/a3/
+
+	~ 
+
+	
+
+	3. Give read, write & execute permissions to your file. (Hint : use chmod
+
+	command)
+
+	
+
+	root@Chin42nakhate:/home/Important# ls
+
+	a.txt  a.zip  a1  b.txt  c.txt  cdac_dir  folder1  folder2  folder3  s1.txt  temp.tar
+
+	root@Chin42nakhate:/home/Important# ls -l
+
+	total 52
+
+	-rw-r--r-- 1 root root    12 Mar 11 00:20 a.txt
+
+	-rw-r--r-- 1 root root   442 Mar 11 00:22 a.zip
+
+	
+
+	root@Chin42nakhate:/home/Important# chmod 777 a.zip
+
+	root@Chin42nakhate:/home/Important# ls -l
+
+	total 52
+
+	-rw-r--r-- 1 root root    12 Mar 11 00:20 a.txt
+
+	-rwxrwxrwx 1 root root   442 Mar 11 00:22 a.zip
+
+	
+
+	4. Change ownership of that file.(Hint : use chown command)
+
+	
+
+	root@Chin42nakhate:/home/Important# ls -l
+
+	total 52
+
+	-rw-r--r-- 1 root root    12 Mar 11 00:20 a.txt
+
+	
+
+	root@Chin42nakhate:/home# chown cdac_kh a.txt
+
+	root@Chin42nakhate:/home# ls -l
+
+	total 68
+
+	-rw-r--r-- 1 cdac_kh root       0 Mar 10 15:01 a.txt
+
+	
+
+	
+
+	5. List processes running in shell, all running processes(Hint : use man page of
+
+	ps command) and show top processes in decreasing order of their resource
+
+	utilization.(Hint : use top command).
+
+	
+
+	root@Chin42nakhate:/home# top -n 10    (shift + m) 
+
+	top - 00:30:47 up  1:49,  0 users,  load average: 0.00, 0.00, 0.00
+
+	Tasks:   8 total,   1 running,   7 sleeping,   0 stopped,   0 zombie
+
+	%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+
+	MiB Mem :   7841.7 total,   7648.6 free,    100.2 used,     92.9 buff/cache
+
+	MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7566.2 avail Mem
+
+	
+
+	  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+
+	    9 cdac_kh   20   0   10040   4952   3256 S   0.0   0.1   0:00.09 bash
+
+	  190 root      20   0   11292   4580   3892 S   0.0   0.1   0:00.02 sudo
+
+	  192 root      20   0    8964   3944   3336 S   0.0   0.0   0:00.02 bash
+
+	  191 root      20   0    9988   3732   3316 S   0.0   0.0   0:00.00 su
+
+	  217 root      20   0   10900   3680   3144 R   0.0   0.0   0:00.00 top
+
+	    1 root      20   0    1744   1080   1016 S   0.0   0.0   0:00.04 init
+
+	    8 root      20   0    1752     76      0 S   0.0   0.0   0:00.43 init
+
+	    7 root      20   0    1752     68      0 S   0.0   0.0   0:00.00 init
+
+	
+
+	
+
+	Question-4.
+
+	1. Display current time and calendar (Hint : use date, cal commands)
+
+	
+
+	root@Chin42nakhate:/home# date
+
+	Fri Mar 11 00:31:47 IST 2022
+
+	root@Chin42nakhate:/home# cal
+
+	     March 2022
+
+	Su Mo Tu We Th Fr Sa
+
+	       1  2  3  4  5
+
+	 6  7  8  9 10 11 12
+
+	13 14 15 16 17 18 19
+
+	20 21 22 23 24 25 26
+
+	27 28 29 30 31
+
+	
+
+	
+
+	
+
+	2. Change the current date and time of the system to following 14th
+
+	March 2017, 10:10 AM
+
+	
+
+	root@Chin42nakhate:/home# date +%D -s 2017-03-14
+
+	03/14/17
+
+	root@Chin42nakhate:/home# date +%T -s 10:10:00
+
+	10:10:00
+
+	root@Chin42nakhate:/home# date
+
+	Tue Mar 14 10:10:02 IST 2017
+
+	
+
+	3. Explore following commands
+
+	who, whoami, whatis, whereis, (Hint : use man pages).
+
+	
+
+	root@Chin42nakhate:/home# who
+
+	root@Chin42nakhate:/home# whoami
+
+	root
+
+	root@Chin42nakhate:/home# whatis ls
+
+	ls (1)               - list directory contents
+
+	root@Chin42nakhate:/home#  whereis ls
+
+	ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+
+	
+
+	
+
+	
+
+	
+
